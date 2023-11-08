@@ -1,10 +1,7 @@
 import { PropTypes } from "prop-types";
-export default function EzAuditaSlide({ demoPBI }) {
+export default function EzAuditaSlide({ url, demoPBI }) {
   return (
-    <section
-      data-background-iframe="https://dev.ezaudita.com"
-      data-background-interactive
-    >
+    <section data-background-iframe={url} data-background-interactive>
       <div
         style={{
           position: "absolute",
@@ -22,7 +19,7 @@ export default function EzAuditaSlide({ demoPBI }) {
           borderRadius: "5px",
         }}
       >
-        <p style={{ marginTop: "7px" }}>Demo {demoPBI}</p>
+        <p style={{ marginTop: "7px" }}>Review {demoPBI}</p>
       </div>
     </section>
   );
@@ -30,4 +27,5 @@ export default function EzAuditaSlide({ demoPBI }) {
 
 EzAuditaSlide.propTypes = {
   demoPBI: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };

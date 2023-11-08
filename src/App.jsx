@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Reveal from "reveal.js";
-import Sprint22 from "./Reviews/Sprint22";
+import Sprint22 from "./Reviews/Sprint22/Sprint22";
 
 function App() {
   useEffect(() => {
