@@ -6,6 +6,7 @@ import PBI3349 from "./PBIs/PBI3349";
 import PBI3387 from "./PBIs/PBI3387";
 import PBI3389 from "./PBIs/PBI3389";
 import PBI3393 from "./PBIs/PBI3393";
+import PBI3436 from "./PBIs/PBI3436";
 
 export default function Sprint22() {
   return (
@@ -18,6 +19,7 @@ export default function Sprint22() {
       <PBI3393 />
       <PBI3387 />
       <PBI3335 />
+      <PBI3436 />
     </div>
   );
 }
