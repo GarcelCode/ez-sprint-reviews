@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import Reveal from "reveal.js";
-import Sprint22 from "./Reviews/Sprint22/Sprint22";
+import SprintTest from "./Reviews/SprintTest/SprintTest";
 
 function App() {
   useEffect(() => {
     Reveal.initialize();
   }, []);
 
-  return <Sprint22 />;
+  return <SprintTest />;
 }
 
 export default App;
