@@ -10,7 +10,7 @@ export default function EzAuditaSlide({ url, demoPBI }) {
           width: "fit-content",
           backgroundColor: "rgba(0, 0, 0, 0.7)",
           color: "#fff",
-          fontSize: "20px",
+          fontSize: "17px",
           paddingLeft: "10px",
           paddingRight: "10px",
           height: "40px",

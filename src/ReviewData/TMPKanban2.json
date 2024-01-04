@@ -38,6 +38,157 @@
       ],
       "Actions": null,
       "Cause": null
+    },
+    {
+      "Type": "pbi",
+      "Number": "3791",
+      "Title": "Mensaje de 'descargas del SAT inctivas' cuando no debería aparecer",
+      "Env": "local",
+      "Stack": "front",
+      "Url": "https://jam.dev/c/d55935f8-a857-4a4d-8cd0-14ae566cc7c1",
+      "Description": {
+        "resume": "Al hacer la generación del pedido de la primera compra de un usuario ya se actualiza la pantalla, lo cual es esperado de acuerdo a lo trabajado en el ticket #3783, sin embargo en esta primera actualización de pantalla, aparecen algunos mensajes inadecuados."
+      },
+      "Requirements": null,
+      "Actions": null,
+      "Cause": null
+    },
+    {
+      "Type": "pbi",
+      "Number": "3756",
+      "Title": "CONFIG ADD - Cambiar instalador, ahora no pregunta el usuario de windows",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Description": {
+        "resume": "El nuevo instalador del ADD ya hace el proceso de llenado de la información de inicio de sesión automáticamente, por lo que es necesario eliminar la imagen en el paso 2 de la configuración del ADD que indica que se require un usuario y contraseña de Windows."
+      },
+      "Requirements": null,
+      "Actions": null,
+      "Cause": null
+    },
+    {
+      "Type": "pbi",
+      "Number": "3549",
+      "Title": "EFOS - Ver listado > EFOS con Operaciones, no debe mostrar registros relacionados a CFDIs emitidos",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/efos?cid=5cf894a3-4ebe-4b62-9fa8-0ea3b21b401f&type=ingress&period=2019-diciembre",
+      "Description": {
+        "resume": "Actualmente al estar en la sección de EFOS al entrar a la opción de 'Ver listado' y estar en la pestaña 'EFOS con Operaciones', se muestran operaciones con EFOS tanto de CFDIs emitidos como de CFDIs recibidos. "
+      },
+      "Requirements": [
+        "Mostrar únicamente operaciones con EFOS relacionados a CFDIs recibidos",
+        "El nombre de la pestaña deberá de ser cambiado de 'EFOS con Operaciones' a 'Operaciones con EFOS'"
+      ],
+      "Actions": null,
+      "Cause": null
+    },
+    {
+      "Type": "bug",
+      "Number": "3720",
+      "Title": "FILTRO CANCELADOS - Imposible encontrar un UUID con Filtros de cancelados.",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/cfdi-issued?cid=5cf894a3-4ebe-4b62-9fa8-0ea3b21b401f&type=ingress&period=2024-enero&state=inactive&cancelled=general",
+      "Description": {
+        "resume": "Desde la sección de CFDIs, hay un CFDI de pago cancelado que no puedo localizar con los filtros de cancelado en el listado de CFDIs."
+      },
+      "Requirements": null,
+      "Actions": null,
+      "Cause": "El CFDI no aparecía en el mes que se esperaba ver (pensando que el mes seleccionado se refiere al mes de emisión) por los filtros que se pasaban a back cuando se consultan los cancelados, el campo utilizado es 'FechaFiltro'"
+    },
+    {
+      "Type": "pbi",
+      "Number": "3753",
+      "Title": "NÓMINA - Incluir columna 'fecha emisión' en la tabla de CFDIs",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/cfdi-issued?cid=5cf894a3-4ebe-4b62-9fa8-0ea3b21b401f&type=payroll&period=2024-enero&state=inactive&cancelled=general",
+      "Description": {
+        "resume": "Ahora en la sección de CFDIs tanto para Emitidos como Recibidos, en la pestaña 'Nómina' se deberá de agregar una nueva columna de 'Fecha emisión'"
+      },
+      "Requirements": [
+        "La columna deberá de ser configurable para encender, apagar y modificar el orden.",
+        "Deberá de estar ubicada justo después de la columna de 'Fecha de pago'",
+        "Por default deberá de estar oculta",
+        "De no ser complicado, debería ser posible hacer un sorting de esta columna (asc o desc)"
+      ],
+      "Actions": null,
+      "Cause": null
+    },
+    {
+      "Type": "pbi",
+      "Number": "3788",
+      "Title": "NÓMINA - RFC receptor o emisor dependiendo el caso",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/cfdi-issued?cid=5cf894a3-4ebe-4b62-9fa8-0ea3b21b401f&type=payroll&period=2024-enero&state=inactive&cancelled=general",
+      "Description": {
+        "resume": "Al consultar CFDIs emitidos se busca que se muestre la info del RFC receptor, así como que la columna sea nombrada como 'RFC receptor' y no solo como 'RFC', por el contrario al estar consultando los CFDIs recibidos se buscará mostrar el RFC emisor."
+      },
+      "Requirements": null,
+      "Actions": null,
+      "Cause": null
+    },
+    {
+      "Type": "pbi",
+      "Number": "3754",
+      "Title": "Actualizar liga de whatsapp en aplicación",
+      "Env": "both",
+      "Stack": "front",
+      "Url": null,
+      "Description": {
+        "resume": "En la aplicación, en el side menu hay una sección 'Soporte', el cuál tiene una subsección 'Whatsapp', cambiar la URL"
+      },
+      "Requirements": null,
+      "Actions": null,
+      "Cause": null
+    },
+    {
+      "Type": "pbi",
+      "Number": "3755",
+      "Title": "Actualizar liga de chat en línea en la aplicación",
+      "Env": "both",
+      "Stack": "front",
+      "Url": null,
+      "Description": {
+        "resume": "En la aplicación, en el side menu hay una sección 'Soporte', el cuál tiene una subsección 'Chat en línea', actualizar la URL"
+      },
+      "Requirements": null,
+      "Actions": null,
+      "Cause": null
+    },
+    {
+      "Type": "pbi",
+      "Number": "2543 | 2941",
+      "Title": "El sistema no actualiza en Validaciones el apartado de Facturas PUE con CFDIS de pago.",
+      "Env": "local",
+      "Stack": "full",
+      "Url": null,
+      "Description": {
+        "resume": "El sistema no actualiza en Validaciones el apartado de Facturas PUE con CFDIS de pago, muestra una factura que fue generada con PUE y se le aplico un cfdi de pago. El cfdi de pago ya fue cancelado pero aun sigue mostrando el documento con error en validaciones."
+      },
+      "Requirements": null,
+      "Actions": [
+        "Analizar el problema desde front para posible descarte.",
+        "Resolver el problema desde back"
+      ],
+      "Cause": "Se tienen dos posibilades para 'arreglar' el bug: Desde front pedir en el search sólo aquellos CFDIs cuyo saldo sea diferente del monto total (Podría generar otros bugs). Revisar y ajustar el código de python que se encarga de quitar la relación de un CFDI de ingreso con pagos relacionados"
+    },
+    {
+      "Type": "pbi",
+      "Number": "3747",
+      "Title": "Después de la primera compra mantiene el descuento de distribuidor",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Description": {
+        "resume": "Utilizar el nuevo campo recibido en License desde back, para determinar si un usuario tiene o no un descuento de distribuidor asignado"
+      },
+      "Requirements": null,
+      "Actions": null,
+      "Cause": null
     }
   ]
 }
