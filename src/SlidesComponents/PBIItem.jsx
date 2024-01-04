@@ -6,6 +6,7 @@ export default function PBIItem({
   PBITitle,
   children,
   stack,
+  env,
 }) {
   return (
     <section>
@@ -24,6 +25,40 @@ export default function PBIItem({
             fontSize: 22,
           }}
         >
+          {env === "local" ? (
+            <div
+              style={{
+                backgroundColor: "#8c4701",
+                padding: "2px 15px 0 15px",
+                borderRadius: 5,
+              }}
+            >
+              LOCAL
+            </div>
+          ) : null}
+          {env === "dev" || env === "both" ? (
+            <div
+              style={{
+                backgroundColor: "#4a027a",
+                padding: "2px 15px 0 15px",
+                borderRadius: 5,
+              }}
+            >
+              DEV
+            </div>
+          ) : null}
+          {env === "prod" || env === "both" ? (
+            <div
+              style={{
+                backgroundColor: "#027a1a",
+                padding: "2px 15px 0 15px",
+                borderRadius: 5,
+              }}
+            >
+              PROD
+            </div>
+          ) : null}
+          |
           {stack === "front" || stack === "full" ? (
             <div
               style={{
@@ -68,4 +103,5 @@ PBIItem.propTypes = {
   PBITitle: PropTypes.string.isRequired,
   children: PropTypes.node,
   stack: PropTypes.string.isRequired,
+  env: PropTypes.string.isRequired,
 };

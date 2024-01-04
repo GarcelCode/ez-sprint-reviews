@@ -1,0 +1,43 @@
+{
+  "SprintInfo": {
+    "Type": "Kanban",
+    "Number": "2",
+    "Date": "22 diciembre - 4 enero"
+  },
+  "PBIs": [
+    {
+      "Type": "bug",
+      "Number": "3772",
+      "Title": "Varios usuarios No pueden iniciar sesion",
+      "Env": "prod",
+      "Stack": "back",
+      "Url": null,
+      "Description": {
+        "resume": "Varios usuarios no pueden ingresar a la aplicación manda error 'La sesión ha expirado'."
+      },
+      "Requirements": null,
+      "Actions": [
+        "Reunión con Luis para revisar el caso",
+        "Modificar información del usuario en BD"
+      ],
+      "Cause": "El error ocurría debido a que se 'desvinculó' una empresa de la cuenta del usuario, no obstante la relación que tiene una empresa con un workspace también se define en otra tabla que mantenía esa relación y el código de python al encontrar sólo en una tabla la relación pero no encontrarla en la otra tabla, tronaba el endpoint encargado de devolver el listado de empresas."
+    },
+    {
+      "Type": "pbi",
+      "Number": "3783",
+      "Title": "SUSCRIPCIÓN - Actualizar pantalla inmediatamente después de 'Generar pedido'",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/subscription?cid=5cf894a3-4ebe-4b62-9fa8-0ea3b21b401f",
+      "Description": {
+        "resume": "Actualmente cuando estás en la pantalla de 'Suscripción' y presionas en 'Generar pedido', la pantalla no se actualiza e intenta hacer los cambios en pantalla necesarios, el problema es que en algunos casos difiere lo que muestra en esta pantalla después de que el usuario actualiza manualmente con F5 o cuando cierra sesión y vuelve a esta pantalla."
+      },
+      "Requirements": [
+        "Omitir ese estatus que se hace de forma dinámica después de presionar el botón de 'Generar pedido'",
+        "Generar el pedido actualizar completamente la página (F5)"
+      ],
+      "Actions": null,
+      "Cause": null
+    }
+  ]
+}
