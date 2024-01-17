@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
-import s from "./SprintTitle.module.scss"
+import s from "./SprintTitle.module.scss";
 
 export default function SprintTitle({ type, sprintNumber, sprintDate }) {
   return (
-    <section className={s.Section}>
-      <h3>{type} review {sprintNumber}</h3>
-      <h4 className={s.Card} style={{backdropFilter: blur("14px")}}>{sprintDate}</h4>
+    <section id={s.SectionSlide}>
+      <h3>
+        {type} review {sprintNumber}
+      </h3>
+      <div className={s.Card}>{sprintDate}</div>
     </section>
   );
 }

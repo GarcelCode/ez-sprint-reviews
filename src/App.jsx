@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import Reveal from "reveal.js";
-import Kanban2 from "./Reviews/Kanban2";
+import RevealMarkdown from "reveal.js/plugin/markdown/markdown.esm.js";
+import Review from "./Reviews/Review";
 // mport SprintTest from "./Reviews/SprintTest/SprintTest";
+
+let deck = new Reveal({ plugins: [RevealMarkdown] });
 
 function App() {
   useEffect(() => {
-    Reveal.initialize();
+    deck.initialize();
   }, []);
 
-  return <Kanban2 />;
+  return <Review />;
 }
 
 export default App;

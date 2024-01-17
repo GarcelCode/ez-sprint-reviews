@@ -1,4 +1,16 @@
+#SectionSlide{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .Card {
+    all: unset;
+    margin-top: -20px;
     font-size: 33px !important;
-    line-height: 0 !important;
+    width: 400px;
+    background-color: rgba(61, 61, 61, 0.2);
+    backdrop-filter: blur(25px);
+    border-radius: 10px;
 }

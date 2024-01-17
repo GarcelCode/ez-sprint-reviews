@@ -1,0 +1,28 @@
+{
+  "SprintInfo": {
+    "Type": "SCRUM",
+    "Number": "25",
+    "Date": "5 enero - 18 enero"
+  },
+  "PBIs": [
+    {
+      "Type": "bug",
+      "Number": "3718",
+      "Title": "PROBLEMAS ADD - Lo enviado a sincronizar y lo marcado en la bitácora, no coincide",
+      "Env": "prod",
+      "Stack": "back",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Title goes here",
+          "content": {
+            "text": ["First Paragraph", "Second Paragraph"],
+            "list": ["First Item", "Second Item"],
+            "image": "3335-1.png"
+          }
+        }
+      ]
+    }
+  ]
+}
