@@ -6,20 +6,226 @@
   },
   "PBIs": [
     {
-      "Type": "bug",
-      "Number": "3718",
-      "Title": "PROBLEMAS ADD - Lo enviado a sincronizar y lo marcado en la bitácora, no coincide",
-      "Env": "prod",
-      "Stack": "back",
-      "Url": null,
+      "Type": "pbi",
+      "Number": "3785",
+      "Title": "UX - Modificar el icono que representa 'Sin XML' + otros detalles relacionados",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/cfdi-issued?cid=5cf894a3-4ebe-4b62-9fa8-0ea3b21b401f&type=ingress&period=2024-enero&state=inactive&cancelled=general",
       "Slides": [
         {
           "type": "image",
-          "header": "Title goes here",
+          "header": "Requerimientos",
           "content": {
-            "text": ["First Paragraph", "Second Paragraph"],
-            "list": ["First Item", "Second Item"],
-            "image": "3335-1.png"
+            "text": [],
+            "list": [
+              "Evitar que se desalinien los 3 puntitos cuando la fila va acompañada del icono. (imagen)",
+              "Cuidar que se esté mostrando el icono también para la vista del ADD"
+            ],
+            "image": "3785-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Requerimientos",
+          "content": {
+            "text": [],
+            "list": [
+              "Evitar que los 3 puntitos se desalinien cuando tiene o no tiene icono de 'Sin XML' (imagen)",
+              "Mejorar el encabezado del icono del 'ojo' que tiene actualmente la columna de los 3 puntitos."
+            ],
+            "image": "3785-2.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "3950",
+      "Title": "ADD - En el filtro cancelado deberá aparecer la tabla de cuántos se pueden enviar ",
+      "Env": "amplify",
+      "Stack": "front",
+      "Url": "https://pr-400.d1iamfl9ntderq.amplifyapp.com/",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "En la sección de ADD emitidos o recibidos, cuando se aplica el filtro de 'Cancelados', actualmente solo se muestra la tabla de cuales se van a cancelar",
+              "Sin embargo, al filtrar Cancelados también sería muy útil mostrar la otra tabla para saber cuantos CFDIs que tenemos en nuestro sistema marcados como Cancelados, también vamos a enviar el XML además de marcarlos como cancelados"
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Requerimientos",
+          "content": {
+            "text": [],
+            "list": [
+              "Mostrar la tabla de CFDIs a enviar y la de A cancelar en el filtro de Cancelados del ADD",
+              "Adicional: al aplicar el filtro de Vigentes está perfecto que solo aparezca la tabla de totales de los CFDIs que serán enviados, pero esta tabla debería de ocupar todo el ancho de la pantalla y no dejar espacios en blanco a los laterales como sucede ahora"
+            ],
+            "image": ""
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "3718",
+      "Title": "PROBLEMAS ADD - Lo enviado a sincronizar y lo marcado en la bitácora, no coincide",
+      "Env": "local",
+      "Stack": "front",
+      "Url": "https://pr-396.d1iamfl9ntderq.amplifyapp.com/",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Se tienen dos problemas documentados por Eduardo similares, estos se pueden apreciar en la cuenta de Hans en PROD"
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Requerimientos",
+          "content": {
+            "text": [],
+            "list": [
+              "No coincide la cantidad de CFDIs a cancelar en la ventana de confirmación de la sincronización",
+              "No coincide la cantidad de CFDIs vigentes a sincronizar con lo que dice la bitácora."
+            ],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Hallazgos",
+          "content": {
+            "text": [],
+            "list": [
+              "Dependiendo la vista donde se consultaba el modal mostraba solo unos datos 'correctos'"
+            ],
+            "image": "3718-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Usar fecha filtro para calcular los totales en la vista del ADD",
+              "Modificar rango de fechas mostrados en el modal",
+              "Cambio de texto 'CFDIs vigentes' a 'CFDIs a enviar'",
+              "Elegir el total 'correcto' y aplicarlo al modal",
+              "La tabla de CFDIs no se recargaba al hacer 'Fuzzy Search'"
+            ],
+            "image": ""
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "3866",
+      "Title": "ADD - Corrección fecha pago",
+      "Env": "amplify",
+      "Stack": "front",
+      "Url": "https://pr-399.d1iamfl9ntderq.amplifyapp.com/",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Ahora que se filtra por el campo 'FechaFiltro' para visualizar los CFDIs en la tabla de CFDIs es de utilidad agregar la columna 'Fecha de pago' sólo para las pestañas que sean necesarias"
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Hallazgos",
+          "content": {
+            "text": [],
+            "list": [
+              "Se estaba usando una variable para las columnas, que también es usada en las tablas de CFDI (I, E, T)"
+            ],
+            "image": ""
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "3793",
+      "Title": "Usuario -  Tiene descargas pendientes",
+      "Env": "both",
+      "Stack": "back",
+      "Url": "",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "El usuario tiene cfdis faltantes por descargar pero el sistema no los procesa ni con la descarga manual, revisando se valida que corresponden a unos cfdis de pago."
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Conclusiones",
+          "content": {
+            "text": [],
+            "list": [
+              "Se solucionó antes de hacer las primeras pruebas en local. Posiblemente por los cambios en la sección de descargas."
+            ],
+            "image": ""
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "2543",
+      "Title": "Usuario -  El sistema no actualiza en Validaciones el apartado de Facturas PUE con CFDIS de pago",
+      "Env": "both",
+      "Stack": "back",
+      "Url": "",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "El sistema no actualiza en Validaciones el apartado de Facturas PUE con CFDIS de pago, muestra una factura que fue generada con PUE y se le aplico un cfdi de pago.",
+              "El cfdi de pago ya fue cancelado pero aun sigue mostrando el documento con error en validaciones"
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Conclusiones",
+          "content": {
+            "text": [],
+            "list": [
+              "En la revisión grupal que se hizo (Oscar, Luis y Eric) detectamos que el bug ya no ocurría. 'Solucionado', posiblemente por los cambios en la sección de descargas.",
+              "Existe otro ticket con el mismo problema reportado, se espera analizar este caso para encontrar la posible causa del bug."
+            ],
+            "image": ""
           }
         }
       ]

@@ -1,5 +1,6 @@
 import PBIItem from "../SlidesComponents/PBIItem";
 import generateSlide from "./generateSlide";
+import getPBIURL from "./getPBIURL";
 
 export default function getPBIs(PBI) {
   const slides = PBI.Slides;
