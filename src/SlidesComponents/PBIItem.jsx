@@ -36,6 +36,18 @@ export default function PBIItem({
               LOCAL
             </div>
           ) : null}
+          {env === "amplify" ? (
+            <div
+              style={{
+                backgroundColor: "#f5a442",
+                padding: "2px 15px 0 15px",
+                borderRadius: 5,
+                color: "#1f1f1f",
+              }}
+            >
+              Amplify
+            </div>
+          ) : null}
           {env === "dev" || env === "both" ? (
             <div
               style={{

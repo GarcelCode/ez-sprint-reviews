@@ -1,9 +1,8 @@
-import data from "../ReviewData/TMPKanban2.json";
-import getPBIURL from "../utils/getPBIURL";
+import data from "../ReviewData/Sprint25.json";
 import getPBIs from "../utils/getPBIs";
 import getSprintTitle from "../utils/getSprintTitle";
 
-export default function Kanban2() {
+export default function Review() {
   const SprintData = data.SprintInfo;
   const SprintPBIs = data.PBIs;
 
