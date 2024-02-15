@@ -1,0 +1,32 @@
+{
+    "SprintInfo": {
+      "Type": "SCRUM",
+      "Number": "26",
+      "Date": "19 enero - 1 febrero"
+    },
+    "PBIs": [
+
+      {
+        "Type": "bug",
+        "Number": "4012 - 3973 - 3718",
+        "Title": "Sección ADD - Ajustes, pruebas y release",
+        "Env": "both",
+        "Stack": "front",
+        "Url": null,
+        "Slides": [
+          {
+            "type": "normal",
+            "header": "Acciones",
+            "content": {
+              "text": [],
+              "list": [
+                "Subir cambios a producción para las pruebas",
+                "Al final lo recibido en el ADD (por mes) no cuadraba por que en el ADD se filtra por Fecha de Emisión"
+              ],
+              "image": null
+            }
+          }
+        ]
+      }
+    ]
+}

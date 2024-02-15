@@ -1,0 +1,153 @@
+{
+  "SprintInfo": {
+    "Type": "SCRUM",
+    "Number": "26",
+    "Date": "19 enero - 1 febrero"
+  },
+  "PBIs": [
+    {
+      "Type": "bug",
+      "Number": "4012 - 3973 - 3718",
+      "Title": "Sección ADD - Ajustes, pruebas y release",
+      "Env": "both",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Subir cambios a producción para las pruebas",
+              "Al final lo recibido en el ADD (por mes) no cuadraba por que en el ADD se filtra por Fecha de Emisión"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "3944",
+      "Title": "CFDIs GRANDES - IVA/ISR - Incluir estos CFDIs procesados para estos 2 impuestos",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Ahora que los CFDIs grandes ya comenzarán a ser procesados por el sistema, las secciones de impuestos de IVA e ISR, deben comenzar a mostrarlos y a contemplarlos en el cálculo"
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Requerimientos",
+          "content": {
+            "text": ["Se deberá de revisar / verificar lo siguiente:"],
+            "list": [
+              "Que efectivamente el algoritmo para el cálculo del IVA e ISR está tomando en cuenta estos XML grandes",
+              "Que los CFDIs grandes estén apareciendo en las vistas de IVA e ISR y se muestren con el icono de 'Sin XML'"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Requerimientos",
+          "content": {
+            "text": null,
+            "list": [
+              "Que sea posible contemplarlos o no para el cálculo del IVA e ISR y modificar su periodo, ya sea desde los 3 puntitos, desde la tabla CFDIs en la sección de IVA/ISR o en el caso del IVA desde la vista de CFDIs y seleccionando varios con el checkbox directamente en la tabla"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Correcciones",
+          "content": {
+            "text": null,
+            "list": [
+              "Se encontró que los filtros para la llamada al endpoint que trae los CFDIs 'No considerados' y 'Período Reasignado' la cantidad no coincidía con lo mostrado en las pestañas. Se aplicó una correción.",
+              "En la pestaña no considerados ISR para el encabezado de la vista del detalle del CFDI aún tenía el 'ojito'. Se cambio por el nuevo icono"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4036",
+      "Title": "Problemas con los modales y conceptos",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Causa",
+          "content": {
+            "text": [],
+            "list": [
+              "Se estaba mandando al endpoint para buscar el CFDI y mostrar los conceptos en el modal con el filtro 'is_issued' lo cual no es necesario, dado que sólo debería haber un registro por UUID",
+              "La condición para saber si se debía pedir 'is_issued' con True o False era si la URL contenía la palabra 'issued' por lo tanto en vistas como el IVA, ISR, EFOS y Validaciones el modal nunca iba a mostrar los conceptos para los Emitidos"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "3949",
+      "Title": "PÚBLICO EN GENERAL - Estos CFDIs deberán mostrarse en ezaudita con base en los campos 'Meses' y 'Año'",
+      "Env": "local",
+      "Stack": "back",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Cuando no se tiene un receptor de la factura o simplemente un cliente no pide factura, de cualquier manera la empresa genera CFDIs con el RFC receptor 'XAXX010101000', estas facturas las cataloga el SAT como una factura al 'público en general'."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Estas facturas en el visor del SAT no se filtran por 'fecha de emisión', ni por 'fecha de pago', si no, que internamente estos CFDIs deben tener los campos 'Meses' y 'Año'."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Avances",
+          "content": {
+            "text": [
+              "Ya se hizo el cambio para cuando se procesen los CFDIs, guardar en 'FechaFiltro' y 'PaymentDate' una fecha basada en los campos 'Meses' y 'Year'",
+              "Se creó el script para actualizar de los datos existentes la 'FechaFiltro' cuando cumpla lo requerido."
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    }
+  ]
+}
