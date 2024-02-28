@@ -1,32 +1,407 @@
 {
-    "SprintInfo": {
-      "Type": "SCRUM",
-      "Number": "26",
-      "Date": "19 enero - 1 febrero"
-    },
-    "PBIs": [
-
-      {
-        "Type": "bug",
-        "Number": "4012 - 3973 - 3718",
-        "Title": "Sección ADD - Ajustes, pruebas y release",
-        "Env": "both",
-        "Stack": "front",
-        "Url": null,
-        "Slides": [
-          {
-            "type": "normal",
-            "header": "Acciones",
-            "content": {
-              "text": [],
-              "list": [
-                "Subir cambios a producción para las pruebas",
-                "Al final lo recibido en el ADD (por mes) no cuadraba por que en el ADD se filtra por Fecha de Emisión"
-              ],
-              "image": null
-            }
+  "SprintInfo": {
+    "Type": "SCRUM",
+    "Number": "27",
+    "Date": "2 febrero - 15 febrero"
+  },
+  "PBIs": [
+    {
+      "Type": "pbi",
+      "Number": "3765",
+      "Title": "PAGOS - Probar y publicar nuevos cambios en pestaña 'Pagos' (Incluye reprocesar de nuevo)",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Requerimientos",
+          "content": {
+            "text": [
+              "Traer de vuelta lo trabajado en sprints anteriores para la sección de cfdis de Pagos"
+            ],
+            "list": [],
+            "image": null
           }
-        ]
-      }
-    ]
+        },
+        {
+          "type": "normal",
+          "header": "PBIs de Front",
+          "content": {
+            "text": [],
+            "list": [
+              "2347 - Columnas de las tablas 'Totales' y 'CFDIs'",
+              "3338 - Filtros avanzados",
+              "3341 - Sorting sobre columnas de la tabla 'CFDIs'",
+              "3655 - Eliminar espacio en blanco en la tabla de CFDIs de 'Pagos'"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "PBIs de Back",
+          "content": {
+            "text": [],
+            "list": [
+              "3337 - Readaptar el parser",
+              "3340 - Fuzzy Search",
+              "3341 - Sorting sobre columnas de la tabla de 'CFDIs'",
+              "3339 - Exportación a Excel Por periodo, ejercicio o selección",
+              "3387 - Sección 'Egresos' no está exportando"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Hallazgos y complicaciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Algunos commits de back siempre estuvieron en las ramas de DEV y PROD (se colaron tentativamente en el deploy del 5 de diciembre en el sprint 24)",
+              "En el deploy del sprint anterior se coló el código de Front que traía los commits de pagos"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4148",
+      "Title": "EXPORTACIONES - Error general en exportaciones a excel de CFDIs de 'Pago'",
+      "Env": "both",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": ["Ningún cliente puede exportar a excel CFDIs de Pago"],
+            "list": [],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4044",
+      "Title": "Columna 'Forma de pago' vacía en los CFDIs de pago",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Detalles",
+          "content": {
+            "text": [],
+            "list": [
+              "En todas las vistas la columna 'Forma de pago', específicamente hablando de CFDIs de pago, viene vacía",
+              "Esto sucede en todas las vistas y secciones donde se muestran CFDIs de pago"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Causas",
+          "content": {
+            "text": [],
+            "list": [
+              "El valor de la forma de pago para los de pagos se encuentra en otro campo al que actualmente se estaba pidiendo en front"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Se agregó el campo donde se encuentra ubicado el valor para los CFDIs de pagos",
+              "Se agregó al modelo de Payment(Back) el valor del catálogo de forma de pago",
+              "Se aplicó también para las vistas IVA, ISR y ADD"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4151",
+      "Title": "PAGOS - Parche para revertir temporalmente cambios de la pestaña 'pagos' que se nos escaparon",
+      "Env": "both",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Detalles",
+          "content": {
+            "text": [],
+            "list": [
+              "Se están reflejando en PROD cambios que aún no planteabamos publicar a la pestaña de 'Pagos', se aplicará un parche para revertirlos."
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Se subió un hotfix para ocultar todo lo nuevo de pagos desde FrontEnd"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4153",
+      "Title": "IMPUESTOS - Al abrir los 3 puntitos, no cargan los conceptos",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Detalles",
+          "content": {
+            "text": [],
+            "list": [
+              "Cuando en la sección de impuestos presionas a los 3 puntitos sobre un CFDI de tipo 'Ingreso' no están cargando los conceptos"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Causas",
+          "content": {
+            "text": [],
+            "list": [
+              "En el deploy anterior un commit 'sobreescribió' el cambio que se aplicó en DEV para arreglar este bug"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Se volvió a aplicar la corrección hecha en el sprint anterior"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4051",
+      "Title": "MEJORA UX - Mejorar el error en el login cuando no tiene workspace",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Detalles",
+          "content": {
+            "text": [],
+            "list": [
+              "Este escenario se produce cuando invitan a un usuario que no tiene cuenta owner en ezaudita y luego le quitan la invitación. El usuario ya no puede acceder y además el login actualmente le da un error inadecuado que dice 'La sesión ha caducado' "
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Requerimientos",
+          "content": {
+            "text": [],
+            "list": [
+              "Se debe mostrar un mensaje indicando al usuario lo que está ocurriendo y cómo proceder",
+              "El error que se debe mostrar cambiará al otro que usamos en el sitio que no se cierra automáticamente y deberá ser de estilo warning"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "3553",
+      "Title": "Muestra la lista de empresas de la sesión pasada (empresas de otra cuenta)",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Detalles",
+          "content": {
+            "text": [
+              "En el login al poner las credenciales de un usuario, por ejemplo las de Hans y desde la la pantalla de seleccionar empresa, no seleccionar ninguna y darle en cerrar sesión.",
+              "Después iniciar sesión con una cuenta distinta a la de Hans y el sistema volverá a mostrar empresas del usuario de Hans, no las mías."
+            ],
+            "list": [],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Causas",
+          "content": {
+            "text": [],
+            "list": [
+              "Hace muchos sprints se aplicó un cambio en el código que se encarga de hacer las llamadas a la API de back, este cambió causo este bug."
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": ["Se revirtió el cambio que se hizo a ese código"],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4047",
+      "Title": "ADD Mejora - Filtro cancelado mejorado - Parte1",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Detalles",
+          "content": {
+            "text": [
+              "Se buscan cambiar dos puntos relacionados al filtro 'Cancelados' exclusivamente en la sección del ADD."
+            ],
+            "list": [
+              "Solo dejar el filtro principal de cancelados y eliminar los subfiltros que aparecen actualmente."
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Se eliminó el filtro desplegable en cancelados",
+              "El PBI se dividió en dos con la finalidad de poder avanzar en este cambio"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "3144",
+      "Title": "REPS - usuario - No muestra correctamente el monto total pagado en CFDI de pagos",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Detalles",
+          "content": {
+            "text": [
+              "El sistema no muestra de manera correcta el monto total del pago cuando un cfdi de pagos es aplicado a una sola factura con diferentes fechas de pago en el mismo documento, ya que solo considera el importe pagado primer abono"
+            ],
+            "list": [],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Se actualizó el código para tomar el valor que debe ir en esa zona por el valor correcto sugerido por Backend"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "3949",
+      "Title": "PÚBLICO EN GENERAL - Estos CFDIs deberán mostrarse en ezaudita con base en los campos 'Meses' y 'Año'",
+      "Env": "both",
+      "Stack": "back",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Como stakeholder quiero que mis clientes vean las facturas para público en general tal como se muestran en el visor del SAT para que concuerde perfectamente"
+            ],
+            "list": [],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Acciones",
+          "content": {
+            "text": [],
+            "list": [
+              "Probar el script para el reproceso",
+              "Confirmar funcionamiento comentado por Eduardo en el review anterior"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4203",
+      "Title": "PÚBLICO EN GENERAL - Estos CFDIs deberán mostrarse en ezaudita con base en los campos 'Meses' y 'Año'",
+      "Env": "amplify",
+      "Stack": "both",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Detalles",
+          "content": {
+            "text": [
+              "En la exportación a excel en la pestaña de pagos por seleccionados. La hoja totales en la tabla no está mostrando las columnas de pagos mostradas en FrontEnd (Muestra las 'genéricas')"
+            ],
+            "list": [],
+            "image": null
+          }
+        }
+      ]
+    }
+  ]
 }
