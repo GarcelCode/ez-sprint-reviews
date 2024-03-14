@@ -1,0 +1,293 @@
+{
+  "SprintInfo": {
+    "Type": "SCRUM",
+    "Number": "29 A",
+    "Date": "1 marzo - 14 marzo"
+  },
+  "PBIs": [
+    {
+      "Type": "pbi",
+      "Number": "4230",
+      "Title": "IVA EGRESOS - Opciones considerar o no IVA para CFDIs de egreso",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Es importante considerar que los nuevos CFDIs de egreso 4.0 de enero 2023 en adelante, puedan ser elegidos para ser o no considerados en el cálculo del IVA, por las mismas maneras como es posible hacerlo ahora para los CFDIs de ingreso."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Habilitar el no considerar en:",
+          "content": {
+            "text": null,
+            "list": [
+              "La vista del IVA mediante el switch de la columna 'No considerar IVA'"
+            ],
+            "image": "4230-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Habilitar el no considerar en:",
+          "content": {
+            "text": null,
+            "list": [
+              "La sección de CFDIs mediante el switch de la columna 'No considerar IVA'"
+            ],
+            "image": "4230-2.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Habilitar el no considerar en:",
+          "content": {
+            "text": null,
+            "list": ["La sección de CFDIs al seleccionar al menos un checkbox"],
+            "image": "4230-3.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4239",
+      "Title": "IVA EGRESOS - Validar y/o adaptar pestañas 'No considerados IVA' y 'Periodo reasignado'",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Aplicar los ajustes necesarios en las pestañas de 'No considerados IVA' y 'Periodo reasignado' para que ahora también se muestren CFDIs de egreso.",
+              "También verificar el funcionamiento de las exportaciones a excel."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "A considerar",
+          "content": {
+            "text": [
+              "Verificar que para el ISR base flujo en la sección de 'Periodo reasignado', no se estarán mostrando los CFDIs de egreso, ya que para el ISR no tienen ningún impacto."
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4309",
+      "Title": "IVA - Agregar columna 'Uso de CFDI'",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Agregar a la tabla de CFDIs la columna 'Uso de CFDI' en la sección del IVA para estas pestañas"
+            ],
+            "list": [
+              "Todos",
+              "Facturas de contado",
+              "No considerados IVA",
+              "Periodo de IVA reasignado"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4486",
+      "Title": "CAMBIO - IVA - Campo 'Uso de CFDI' también en pestañas de Tipo P",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Se busca inlcuir también la columna 'Uso de CFDI' para las pestañas que en el ticket 4309 se pidió excluir."
+            ],
+            "list": [
+              "Cobro facturas de crédito",
+              "Pago facturas de crédito",
+              "Retenciones facutras de contado",
+              "Pago retenciones facturas de cŕedito"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4291",
+      "Title": "IVA - Error al no considerar desde la sección de CFDIs mediante el checkbox",
+      "Env": "both",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Al aplicar un filtro en el listado de CFDIs recibidos, Facturas de contado con método de pago efectivo.",
+              "Se marcan las facturas que devuelve ese filtro y se indica que no las considere para IVA.",
+              "La aplicación, indica que quedaron marcadas como no consideradas para IVA. Pero en realidad no hace nada."
+            ],
+            "list": null,
+            "image": "4291-1.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4264",
+      "Title": "ADD - En la tabla de totales de cancelados aparecen montos incorrectos",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "La tabla de Totales del lado de cancelados no está mostrando correctamente valores en la columna de 'Si puede cancelarse', tanto la 'Cantidad' como el 'Monto' hay casos de uso que es incorrecto."
+            ],
+            "list": null,
+            "image": "4264-1.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4219",
+      "Title": "FILTROS - Nuevo subfiltro en 'Cancelados' llamado 'Todos'",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Desde la sección de CFDI al tener seleccionado el filtro principal de periodo un mes en particular,",
+              "Se requiere agregar una nueva sub-opción llamada 'Todos', esta opción traerá los resultados de la suma de los subfiltros 1 y 3, es decir, 'Cancelados y emitidos en el mes' + 'Cancelados en meses posteriores'"
+            ],
+            "list": null,
+            "image": "4219-1.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4460",
+      "Title": "IVA - Columnas mal nombradas",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Existen columnas mal nombradas en la sección de 'Impuestos > IVA base flujo', particularmente en la tabla de CFDIs",
+              "Si se está consultando el IVA trasladado, deberían llamarse las columnas IVA trasladado."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": null,
+            "list": null,
+            "image": "4460-1.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4193",
+      "Title": "ADD - Filtro cancelado mejorado (Solo 1 tabla de totales)",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "En la vista de 'Conciliación ADD' cuando el filtro de 'Cancelados' esté seleccionado, solo se mostrará la tabla de totales de la derecha que dice cuantos CFDIs se cancelarán"
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4303",
+      "Title": "MEJORA UX - Mejorar la responsividad de los filtros de la sección de CFDIs ",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Evitar que se desorganicen los filtros que se encuentran en la sección de CFDIs"
+            ],
+            "list": null,
+            "image": "4303-1.png"
+          }
+        }
+      ]
+    }
+  ],
+  "Support": [
+    {
+      "ticket": "4379",
+      "title": "usuario - Descarga manual atorada",
+      "stack": "back"
+    }
+  ],
+  "Transform": "AWS::Serverless-2016-10-31"
+}

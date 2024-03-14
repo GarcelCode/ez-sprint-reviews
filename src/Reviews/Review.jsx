@@ -1,4 +1,4 @@
-import data from "../ReviewData/Sprint28.json";
+import data from "../ReviewData/Sprint29.json";
 import getPBIs from "../utils/getPBIs";
 import getSprintTitle from "../utils/getSprintTitle";
 
