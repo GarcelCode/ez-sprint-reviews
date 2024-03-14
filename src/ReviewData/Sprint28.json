@@ -1,0 +1,286 @@
+{
+  "SprintInfo": {
+    "Type": "Kanban / SCRUM",
+    "Number": "28",
+    "Date": "21 febrero - 29 febrero"
+  },
+  "PBIs": [
+    {
+      "Type": "bug",
+      "Number": "4203",
+      "Title": "PAGOS - La tabla de totales viene mal en la exportación a excel por seleccionados",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "El error se podía replicar sólo al exportar por CFDIs seleccionados"
+            ],
+            "list": null,
+            "image": "4203-1.png"
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Causa",
+          "content": {
+            "text": [
+              "Faltaba del lado de frontend para este tipo de exportación pasarle el tipo de descarga que aplica a esta vista (tipo pago) y en backend considerar este tipo de descarga también"
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4145",
+      "Title": "NOMINA - Exportar excel con cierta config de columnas, se desfasan",
+      "Env": "dev",
+      "Stack": "back",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": ["La exportación a Excel de nominas desfasa las columnas"],
+            "list": null,
+            "image": "4145-1.png"
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4208",
+      "Title": "PAGOS - Exportar excel con cierta config de columnas, se desfasan",
+      "Env": "dev",
+      "Stack": "back",
+      "Url": null,
+      "Slides": []
+    },
+
+    {
+      "Type": "pbi",
+      "Number": "4199",
+      "Title": "NOMINA/PAGOS - Incluir filtro avanzado 'Tienen XML'",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Actualmente en la pestaña nómina y pago, no aparece el filtro avanzado de 'Tiene XML', la propuesta de este ticket es incluirlo."
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "3195",
+      "Title": "El autocompletar empresas del menú superior derecho, no funciona",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "No busca correctamente. Al corregirlo se deberá cuidar que no sea sencible a mayúsculas y minúsculas. Además de que pueda buscar por cualquier palabra en medio del nombre de la empresa, no necesariamente desde el principio."
+            ],
+            "list": null,
+            "image": "3195-1.png"
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4237",
+      "Title": "ADD - No se está sincronizando la metadata de 'Cancelados' después de sincronizar",
+      "Env": "dev",
+      "Stack": "back",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Después de terminar sincronización, no se está actualizando bien la metadata de los Cancelados."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Causa",
+          "content": {
+            "text": [
+              "En la query que se hace para determinar cuales CFDIs ya se encuentran cancelados en el ADD en la sincronización de metadata",
+              "Ocurría lo mismo que en el bug que ocasionaba que no se mandaran a sincronizar los cancelados",
+              "Se hacía una validación en SQL que en la práctica siempre devolvía 'false'"
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "pbi",
+      "Number": "4235",
+      "Title": "PAGOS - Evitar que aparezcan los CFDIs de pago relacionados en ciertos escenarios",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "En la columna 'CFDIs de pago relacionados' se espera mostrar aquellos CFDIs que:",
+              "-"
+            ],
+            "list": ["Esten aplicados al cálculo del saldo (applied = true)"],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Los cancelados se deben mostrar atenuados siempre y cuando cumplan la condición anterior y mostrarán un tooltip.",
+              "Una vez que no jueguen más en el cálculo del saldo deberán desaparecer."
+            ],
+            "list": [],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Resultado (ejemplo)",
+          "content": {
+            "text": [],
+            "list": [],
+            "image": "4235-1.png"
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "pbi",
+      "Number": "4214",
+      "Title": "DEUDA - Agregar campo virtual al modelo de CFDI para los catálogos",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "normal",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Se busca tener un campo virtual para mostrar los campos relacionados a los catálogos (ejemplo: Forma de pago) de  los CFDIs.",
+              "Este campo, dependiendo del tipo de comprobante tomará el valor (código y descripción) del modelo correspondiente"
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Beneficios",
+          "content": {
+            "text": [],
+            "list": [
+              "Es posible en la exportación a excel ver el valor de los catálogos cuando convivan dos o más tipos de comprobante",
+              "Se reduce complejidad en código de FrontEnd",
+              "Será posible exportar la descripción del código de un catálogo (actualmente se omiten estos campos en la exportación)*",
+              "Reducirá en gran medida el mantenimiento de la sección de exportaciones al agregar catálogos para otros modelos"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Mejorable",
+          "content": {
+            "text": [],
+            "list": ["Estos campos no son ordenables"],
+            "image": null
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Resultados",
+          "content": {
+            "text": [],
+            "list": [
+              "Sólo se aplicó el uso de este cambio en las secciones de IVA e ISR",
+              "En esta sección para la columna 'Forma de pago código' se quitó el ordenamiento",
+              "Las exportaciones en la pestaña 'Todos' en las secciones de IVA e ISR ya trae el valor tanto para los de ingreso como los de pagos"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4263",
+      "Title": "Mucho espacio en blanco en la tabla CFDIs de la pestaña 'Pagos'",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "En la vista de CFDIs en la pestaña 'pagos' cuando se hace un zoom por debajo del 65% se genera un espacio en blanco en la tabla"
+            ],
+            "list": null,
+            "image": "4263-1.png"
+          }
+        },
+        {
+          "type": "normal",
+          "header": "Causa",
+          "content": {
+            "text": [
+              "Existía en el código una columna que, en la pestaña de ingresos permitía desplegar todos los conceptos de una.",
+              "En sprints anteriores se quitó este encabezado de la columna, sin embargo, se quedó un código que metía el espacio en blanco y que en la interfaz y funcionalidad poco aportaba"
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    }
+  ]
+}
