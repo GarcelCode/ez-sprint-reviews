@@ -48,6 +48,18 @@ export default function PBIItem({
               Amplify
             </div>
           ) : null}
+          {env === "review" ? (
+            <div
+              style={{
+                backgroundColor: "#d2fc36",
+                padding: "2px 15px 0 15px",
+                borderRadius: 5,
+                color: "#1f1f1f",
+              }}
+            >
+              Revisión
+            </div>
+          ) : null}
           {env === "dev" || env === "both" ? (
             <div
               style={{

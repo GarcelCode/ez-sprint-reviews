@@ -1,0 +1,201 @@
+{
+  "SprintInfo": {
+    "Type": "SCRUM",
+    "Number": "30",
+    "Date": "15 marzo - 27 marzo"
+  },
+  "PBIs": [
+    {
+      "Type": "pbi",
+      "Number": "4048",
+      "Title": "COLUMNAS MX - Nuevas columnas MX sobre varios campos de CFDIs de ingreso/egreso",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Como usuario quiero en la sección de CFDIs tanto para ingresos como egresos poder ver los valores de subtotal, descuento, neto, impuestos trasladados y retenciones en pesos mexicanos en la tabla de CFDIs para facilitar mi contabilidad."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Estas columnas nuevas serán configurables a apagar, encender y reordenar, además, por default deberán de estar apagadas y serán ubicadas justo después de la columna con su mismo nombre."
+            ],
+            "list": null,
+            "image": "4048-1.png"
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "pbi",
+      "Number": "4056",
+      "Title": "COLUMNAS MX - En las exportaciones a excel",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Como usuario quiero que en mis exportaciones de excel tanto de ingresos como egresos vengan incluidos los campos agregados en el ticket 4048 siempre y cuando sean columnas que tenga encendidos en la configuración."
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4544",
+      "Title": "Sección CFDIs barra azul de acciones - al considerar o no para el cálculo el mensaje de éxito es incorrecto",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Sección CFDIs barra azul de acciones - al considerar o no para el cálculo el mensaje de éxito es incorrecto."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Causas",
+          "content": {
+            "text": [
+              "En el sprint anterior se corrigió la acción que hacía el proceso solicitado contrario, pero se olvidó revisar el mensaje de confirmación que con el cambio hecho quedó invertido."
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4509",
+      "Title": "CFDIs - Contadores de Tabs que no se actualizan en cierta situación",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Al estar en la sección de CFDIs específicamente en la pestaña 'Ingreso' y se marcan cualquiera de los filtros de PUE o PPD, el comportamiento al cambiar de periodo o ejercicio es que los contadores de todos los Tabs deberían de actualizarse y sin embargo no sucede así."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Causas",
+          "content": {
+            "text": [
+              "En  sprints anteriores se puso ese 'feature' que, cuando se activaba el filtro PPD el filtro no actuaba sobre las otras pestañas diferentes a las de ingreso, sin embargo, mientras este filtro PPD estuviera activo cuando se ejecutara alguna otra acción que necesitara actualizar los valores,  no se iba a hacer para las pestañas distintas a las de Ingreso."
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4236",
+      "Title": "msaldana@zapata.com.mx - El sistema no realiza las descargas completas",
+      "Env": "dev",
+      "Stack": "back",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "El usuario reporta no tener descargas completas en algunas de sus empresas."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Investigación - Resultados",
+          "content": {
+            "text": [
+              "Revisando la cuenta del usuario se pudo encontrar y confirmar que:"
+            ],
+            "list": [
+              "11 empresas de esta cuenta tenían problemas con descargas (marcadas con icompletas)",
+              "De estas 11 empresas, 2 ya no cuentan con certificados válidos",
+              "Una de las 9 empresas restantes puede resolver su 'problema' en la descarga histórica, atacando el bug 3583"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Investigación - Resultados",
+          "content": {
+            "text": null,
+            "list": [
+              "A las 8 empresas restantes le faltaban de 1 a 18 CFDIs, todos, con las mismas características",
+              "Fecha emisión del 30/12/2023",
+              "Recibidos - Ingreso",
+              "Emisor: BBA830831LJ2 - BBVA MEXICO, S.A., INSTITUCION DE BANCA MULTIPLE, GRUPO FINANCIERO BBVA MEXICO"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Investigación - Resultados",
+          "content": {
+            "text": null,
+            "list": [
+              "De esas 8 empresas sólo una empresa tenía un CFDI faltante en emitidos, pero se presume que faltaba procesarse porque se consultó el mismo día que fue emitido (25/03/2024)"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4055",
+      "Title": "EXPORTACIONES - Muestra el botón descargar habilitado sobre links vencidos",
+      "Env": "local",
+      "Stack": "back",
+      "Url": null,
+      "Slides": []
+    }
+  ]
+}

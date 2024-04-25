@@ -1,0 +1,264 @@
+{
+  "SprintInfo": {
+    "Type": "SCRUM",
+    "Number": "31",
+    "Date": "02 abril - 10 abril"
+  },
+  "PBIs": [
+    {
+      "Type": "pbi",
+      "Number": "4578",
+      "Title": "IVA Reorganizar - Parte 2 En 'IVA acreditable' quitar retenciones del mes pasado",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Como dueño de negocio quiero reorganizar la sección de 'IVA base flujo' para coincida mejor con los visores del SAT y sea más sencillo de interpretar para los usuarios de ezaudita "
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Cambios",
+          "content": {
+            "text": null,
+            "list": [
+              "Eliminar las pestañas 'Retenciones facturas de contado' y 'Pago retenciones facturas de crédito'",
+              "Eliminar las filas de la tabla de totales de 'Retenciones facturas de contado' y 'Pago retenciones facturas de crédito'"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Cambios",
+          "content": {
+            "text": null,
+            "list": [
+              "Ya no deberán participar en el cálculo del IVA acreditable.",
+              "En el excel también deberán desaparecer la información de estas 2 filas."
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "pbi",
+      "Number": "4580",
+      "Title": "IVA Reorganizar - Parte 4 Reorganizar acomodo de las cosas",
+      "Env": "dev",
+      "Stack": "full",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Como dueño de negocio quiero reorganizar la sección de 'IVA base flujo' para coincida mejor con los visores del SAT y sea más sencillo de interpretar para los usuarios de ezaudita."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Cambios",
+          "content": {
+            "text": null,
+            "list": [
+              "Intercambiar columnas de lugar 'IVA trasladado/acreditable total' y 'Retenciones IVA' de ambas tablas 'Totales' y 'CFDIs'",
+              "Quitar color rojo y cambiarlo por el color estándar y también quitarle el símbolo negativo a la columna de 'Retenciones IVA' en todas la pestañas que aparece la tabla de 'Totales'."
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Cambios",
+          "content": {
+            "text": null,
+            "list": [
+              "Agregar nueva fila en negritas con el título (primera columna) 'Totales'",
+              "Al exportar a excel deberán reflejarse estos cambios, exceptos los de color y las negritas",
+              "La columna 'Periodo' de la tabla 'Totales' en todas las pestañas, ya no será necesaria, habrá que eliminarla",
+              "El texto que tienen en gris las tabs que indica el periodo, ya no será necesario, habrá que eliminarlo"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "pbi",
+      "Number": "4582",
+      "Title": "IVA - Contar los CFDIs de documentos relacionados que trae dentro cada CFDI de pago",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Como usuario quiero en la sección de IVA ver en pantalla el número de CFDIs de ingreso relacionados a los CFDIs de pago para validar con este número mostrado en los visores del SAT "
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Cambios",
+          "content": {
+            "text": ["Agregar nueva columna '# Relacionados' en la aplicación"],
+            "list": [
+              "En la vista de CFDIs para la pestaña de CFDIs de pagos, en la tabla totales y en la tabla de CFDIs (apagada por default)",
+              "En la vista del IVA en la pestaña de 'Cobro/Pago facturas de crédito' en la tabla de Totales y tabla de CFDIs"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Cambios",
+          "content": {
+            "text": null,
+            "list": [
+              "En la sección del IVA en la pestaña Todos sólo agregar en la columna de conteo de CFDIs para la tabla de totales separado por una barra (/)",
+              "El valor en esta sección estará con color azul y tendrá un tooltip al pasar el mouse"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4422",
+      "Title": "sitsaoficina@gmail.com - El sistema no carga la informacion de la empresa",
+      "Env": "both",
+      "Stack": "back",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "El sistema se queda ciclado en las pantallas de inicio y no permite seleccionar un periodo (solo se presenta con una empresa)"
+            ],
+            "list": null,
+            "image": "4422-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Causa principal",
+          "content": {
+            "text": ["El endpoint 'CFDI/get_by_period' estaba dando error"],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "pbi",
+      "Number": "4723",
+      "Title": "IVA - Contemplar nueva columna '# Relacionados' para las exportaciones a excel",
+      "Env": "review",
+      "Stack": "back",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Complementando el ticket #4582, ahora será necesario que cuando realicen exportaciones a excel de las vistas donde se incluyó la columna nueva '# Relacionados', esta columna venga contenida en el excel exportado. "
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Cambios",
+          "content": {
+            "text": ["Esta columna debe aparecer al exportar en:"],
+            "list": [
+              "La vista de CFDIs para la exportación en las hojas de CFDIs (cuando y donde se solicite) y en la hoja de Totales",
+              "En la sección del IVA en las pestañas 'Cobro/Pago facturas de crédito' en la hoja de CFDIs y Totales"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+
+    {
+      "Type": "bug",
+      "Number": "4574",
+      "Title": "anarcanteros@gmail.com - FILTRO PERIODO - No aparecen periodos donde sí existen facturas",
+      "Env": "local",
+      "Stack": "back",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Este usuario sí tiene CFDIs de pago con fecha filtro para Febrero 2024, incluso la fecha de emisión de esos CFDIs de pago es Febrero 2024 y en el selector de periodo, no le está apareciendo el mes de febrero 2024, solo le aparece enero 2024"
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": null,
+            "list": null,
+            "image": "4574-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": null,
+            "list": null,
+            "image": "4574-2.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Causa",
+          "content": {
+            "text": [
+              "El endpoint que devuelve el listado de fechas, sólo considera los CFDIs de ingresos"
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    }
+  ]
+}
