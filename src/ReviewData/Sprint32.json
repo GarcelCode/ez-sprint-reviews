@@ -1,0 +1,325 @@
+{
+  "SprintInfo": {
+    "Type": "SCRUM",
+    "Number": "32",
+    "Date": "12 abril - 25 abril"
+  },
+  "PBIs": [
+    {
+      "Type": "pbi",
+      "Number": "4856",
+      "Title": "Bloquear fuzzy search para la lista negra",
+      "Env": "both",
+      "Stack": "front",
+      "Url": "",
+      "Slides": []
+    },
+    {
+      "Type": "pbi",
+      "Number": "4353",
+      "Title": "CFDIs de egreso relacionados - En la pestaña de 'Ingresos' como nueva columna en la tabla CFDIs",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "En la sección de CFDIs ya sea emitidos o recibidos, específicamente en la pestaña de ingresos se agregará una nueva columna 'CFDIs de egreso relacionados' que contendrá los valores de UUIDs de egreso relacionados."
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Requisitos",
+          "content": {
+            "text": null,
+            "list": [
+              "Deberá ser configurable",
+              "Por default deberá estar apagada",
+              "Deberá estar ubicada justo después de la columna 'CFDIs de pago relacionados'",
+              "Sólo mostrar los UUIDs vigentes con el estilo similar a las columnas de UUID relacionado y de pagos relacionados"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4842",
+      "Title": "CFDIs de egreso relacionados - Debe ser posible darles clic a los UUIDs",
+      "Env": "local",
+      "Stack": "front",
+      "Url": "https://pr-509.d1iamfl9ntderq.amplifyapp.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Para habilitar el clic en los UUIDs de egreso relacionados es necesario modificar el código para que las funciones que se encargan de pasarle datos al modal, soporten más de un tipo de CFDI. Actualmente sólo soporta CFDIs de tipo pago"
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Hallazgos y mejoras",
+          "content": {
+            "text": null,
+            "list": [
+              "En algunos modales, se pedían más campos a la base de datos de los necesarios",
+              "Para solicitar la información del CFDI se hacía un Fuzzy Search, cuando lo optimo es pedirlo dentro del dominio del endpoint",
+              "Existen dos componentes 'Modal' para el mismo proposito, cuando no es necesario tener 2"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Hallazgos y mejoras",
+          "content": {
+            "text": null,
+            "list": [
+              "Se encontró un bug en el modal en la sección de conceptos, que provocaba que se repitieran algunos registros, era más notorio cuando la tabla tenía más de una página"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4758",
+      "Title": "CFDIs de egreso relacionados - Exportar a excel nueva columna",
+      "Env": "review",
+      "Stack": "back",
+      "Url": "",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Será necesario que al realizar una exportación a excel ya sea por periodo/ejercicio o mediante selección de checkbox deberá de incluir la nueva columna de CFDIs de egreso relacionados, siempre y cuando esté encendida la columna, además de que esta debe aparecer en el orden adecuado. "
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "A considerar",
+          "content": {
+            "text": ["Aplicar para descarga por período y por selección"],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4760",
+      "Title": "Exportar excel de ingresos por periodo/ejercicio la columna 'CFDIs de pago relacionados' repite valores",
+      "Env": "dev",
+      "Stack": "back",
+      "Url": "",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": null,
+            "list": null,
+            "image": "4760-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Conclusiones",
+          "content": {
+            "text": null,
+            "list": [
+              "Existe una diferencia entre lo mostrado en la Aplicación y en el excel porque en frontend quitamos de la vista los UUIDs repetidos, sin embargo en la BD la relación existe 3 veces para el mismo UUID y en el excel no se filtran los repetidos"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Conclusiones",
+          "content": {
+            "text": null,
+            "list": [
+              "Este problema no fue reportado en Producción, nos percatamos del error en algunas cuentas de DEV, por lo que posiblemente el origen del 'bug' puede deberse a una manipulación de la cuenta manual"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "3228",
+      "Title": "EXPORTACIÓN - Por checkbox, no incluye la columna 'CFDIs de pago relacionados'",
+      "Env": "both",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "En la sección de CFDIs en pestaña de 'Ingresos' al exportar seleccionando el checkbox de algunas filas de la tabla de CFDIs, la columna 'CFDIs de pago relacionados' está incorrecta"
+            ],
+            "list": null,
+            "image": "3228-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Causa",
+          "content": {
+            "text": [
+              "Desde frontend el campo solicitado no era el mismo para la descarga por periodo y para la descarga por selección. Se dejo el mismo nombre para ambas exportacioness."
+            ],
+            "list": null,
+            "image": "3228-1.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "bug",
+      "Number": "4724",
+      "Title": "FILTRO + EXPORTACIÓN - Al aplicar un filtro avanzado no exporta a excel",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Cuando se aplica un filtro avanzado en la vista de CFDIs, y se intenta exportar a Excel, no se genera el archivo de exportación."
+            ],
+            "list": null,
+            "image": "4724-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Causa",
+          "content": {
+            "text": [
+              "Al tener activado el filtro avanzado 'Forma de pago bancariada' desde front en la exportación se mandaba pedir en el dominio un campo que no existe en base de datos 'FormaPagov2'"
+            ],
+            "list": null,
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4466",
+      "Title": "VALIDACIÓN - CFDI recibidos de ingreso PUE y no bancarizada",
+      "Env": "amplify",
+      "Stack": "front",
+      "Url": "https://pr-498.d1iamfl9ntderq.amplifyapp.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Como usuario quiero una nueva validación que me muestre los CFDIs recibidos de tipo ingreso con método de pago PUE y que sean 'No bancarizados' para ayudarme en mi contabilidad a identificar estos errores.s"
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Requisitos",
+          "content": {
+            "text": null,
+            "list": [
+              "Sólo aplicar a CFDIs recibidos",
+              "La fecha del CFDI debe ser mayor o igual al 1ero de enero de 2023",
+              "Método de pago PUE",
+              "Forma de pago no bancarizada",
+              "El título a mostrar es: 'Ingreso PUE - No bancarizado'",
+              "En la sección de Emitidos se queda la validación de Ingreso PUE con el título 'Ingreso PUE - 99'"
+            ],
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4354",
+      "Title": "CFDIs de ingreso relacionados - Mostrar la lista en el modal de egresos en una tabla nueva",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Como usuario quiero poder ver los 'CFDIs de ingreso relacionados' en la info que muestra al abrir el detalle (3 puntitos) de un CFDI de egreso para facilitar mi contabilidad"
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Requisitos",
+          "content": {
+            "text": [
+              "Mostrar en una tabla dentro del modal de un CFDI de egresos los CFDIs de ingreso relacionados con los campos UUID y Tipo de relación4354"
+            ],
+            "list": null,
+            "image": "4354-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Requisitos",
+          "content": {
+            "text": [
+              "Mostrar en una tabla dentro del modal de un CFDI de egresos los CFDIs de ingreso relacionados con los campos UUID y Tipo de relación"
+            ],
+            "list": null,
+            "image": "4354-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Requisitos",
+          "content": {
+            "text": null,
+            "list": [
+              "Sólo mostrar UUIDs de ingreso que estén vigentes",
+              "En caso de no tener ningún CFDI relacionado se mostrará el mensaje 'Ningún ingreso relacionado' en lugar de la tabla"
+            ],
+            "image": "4354-2.png"
+          }
+        }
+      ]
+    }
+  ]
+}
