@@ -1,0 +1,230 @@
+{
+	"SprintInfo": {
+		"Type": "SCRUM",
+		"Number": "33",
+		"Date": "26 abril - 9 mayo"
+	},
+	"PBIs": [
+		{
+			"Type": "pbi",
+			"Number": "4913",
+			"Title": "CAMBIO - Modal de egresos 'CFDIs de ingreso relacionados'",
+			"Env": "dev",
+			"Stack": "front",
+			"Url": "https://dev.ezaudita.com/cfdi-received?cid=873457be-cfbb-4c47-a8df-cbe4d048bf6c&type=egress&period=2024-mayo",
+			"Slides": [
+				{
+					"type": "image",
+					"header": "Descripción",
+					"content": {
+						"text": [
+							"Este ticket representa un cambio en lo definido en el ticket #4354",
+							"Anteriormente, se pedía construir la tabla siempre y cuando en los XMLs de los ingresos mencionaran el UUID del CFDI de egreso. Sin embargo, no es eso lo que se buscaba. Realmente para construir la tabla, solo basta con ver la información del XML del mismo egreso consultado y observar la información de los 'UUIDs relacionados'"
+						],
+						"list": null,
+						"image": null
+					}
+				}
+			]
+		},
+		{
+			"Type": "bug",
+			"Number": "4899",
+			"Title": "IVA - Las notas de crédito continúan sumando a los totales de IVA",
+			"Env": "both",
+			"Stack": "back",
+			"Url": "https://dev.ezaudita.com/iva?cid=873457be-cfbb-4c47-a8df-cbe4d048bf6c&ivaType=period_transferred&period=2024-mayo",
+			"Slides": [
+				{
+					"type": "image",
+					"header": "Descripción",
+					"content": {
+						"text": [
+							"El valor de las Notas de crédito de 'IVA trasladado total' o 'IVA acreditable total' (dependiendo el IVA consultado) se está sumando al valor de notas de crédito."
+						],
+						"list": null,
+						"image": null
+					}
+				}
+			]
+		},
+		{
+			"Type": "pbi",
+			"Number": "4888",
+			"Title": "Bloqueo para evitar que los usuarios accedan al sistema.",
+			"Env": "both",
+			"Stack": "front",
+			"Url": "",
+			"Slides": []
+		},
+		{
+			"Type": "pbi",
+			"Number": "4842",
+			"Title": "CFDIs de egreso relacionados - Debe ser posible darles clic a los UUIDs",
+			"Env": "dev",
+			"Stack": "front",
+			"Url": "https://dev.ezaudita.com/cfdi-received?cid=873457be-cfbb-4c47-a8df-cbe4d048bf6c&type=ingress&period=2021&state=active",
+			"Slides": [
+				{
+					"type": "image",
+					"header": "Descripción",
+					"content": {
+						"text": [
+							"Al momento de dar clic sobre un UUID de la nueva columna 'CFDIs de egreso relacionados' se debe abrir un modal con la información del CFDI de egreso."
+						],
+						"list": null,
+						"image": null
+					}
+				}
+			]
+		},
+		{
+			"Type": "pbi",
+			"Number": "4758",
+			"Title": "CFDIs de egreso relacionados - Exportar a excel nueva columna",
+			"Env": "dev",
+			"Stack": "back",
+			"Url": "https://dev.ezaudita.com/cfdi-received?cid=873457be-cfbb-4c47-a8df-cbe4d048bf6c&type=ingress&period=2021&state=active",
+			"Slides": []
+		},
+		{
+			"Type": "pbi",
+			"Number": "4466",
+			"Title": "VALIDACIÓN - CFDI recibidos de ingreso PUE y no bancarizada",
+			"Env": "dev",
+			"Stack": "front",
+			"Url": "https://dev.ezaudita.com/validations?cid=873457be-cfbb-4c47-a8df-cbe4d048bf6c&period=2021",
+			"Slides": [
+				{
+					"type": "image",
+					"header": "Descripción",
+					"content": {
+						"text": [
+							"Se espera incluir una nueva validación (Menú lateral - Validaciones) que identifique los ingresos recibidos con fecha igual o mayor a 1ro de Enero 2023, con método de pago PUE y que tienen una forma de pago 'No bancarizada'"
+						],
+						"list": null,
+						"image": null
+					}
+				}
+			]
+		},
+		{
+			"Type": "pbi",
+			"Number": "3286",
+			"Title": "FILTRO AVANZADO - 'Tipo de relación' y 'UUID Relacionado'",
+			"Env": "dev",
+			"Stack": "front",
+			"Url": "https://dev.ezaudita.com/cfdi-issued?cid=873457be-cfbb-4c47-a8df-cbe4d048bf6c&type=ingress&period=2021",
+			"Slides": [
+				{
+					"type": "image",
+					"header": "Descripción",
+					"content": {
+						"text": [
+							"Los campos 'Tipo de relación' y 'UUID relacionado' aparecen en todas las pestañas (ingreso/egreso/traslado/nómina/pago), por lo que deberá de incluirse este filtro avanzado en todas ellas."
+						],
+						"list": null,
+						"image": null
+					}
+				},
+				{
+					"type": "image",
+					"header": "Requisitos",
+					"content": {
+						"text": null,
+						"list": [
+							"Para el campo 'UUID relacionado' bastará solo con el operador =",
+							"Para el campo de 'Tipo de relación' esperaríamos que los operadores sean =, <>",
+							"OPCIONAL: Si es sencillo sumar para el campo 'Tipo de relación' sumar los operadores 'Contiene' y 'No contiene', incluirlos."
+						],
+						"image": null
+					}
+				}
+			]
+		},
+		{
+			"Type": "pbi",
+			"Number": "4884",
+			"Title": "DESCUENTO 20% - Durante el mes de Mayo",
+			"Env": "both",
+			"Stack": "front",
+			"Url": "",
+			"Slides": [
+				{
+					"type": "image",
+					"header": "",
+					"content": {
+						"text": null,
+						"list": null,
+						"image": "4884-1.png"
+					}
+				}
+			]
+		},
+		{
+			"Type": "pbi",
+			"Number": "4978",
+			"Title": "La columna UUID Relacionado no es visible 'Cambió de formato'",
+			"Env": "dev",
+			"Stack": "front",
+			"Url": "https://app.ezaudita.com/cfdi-issued?cid=750e799c-6990-4e25-a3c4-228f6d276640&type=ingress&period=2024-mayo",
+			"Slides": [
+				{
+					"type": "image",
+					"header": "Descripción",
+					"content": {
+						"text": [
+							"Particularmente en ambiente DEV la columna UUID Relacionado no se visualiza correctamente en algunos casos, es decir, a pesar de que en el XML existan UUIDs relacionados, en la columna 'UUID Relacionado' que aparece en las tablas de ezaudita, no se está mostrando. "
+						],
+						"list": null,
+						"image": "4978-1.png"
+					}
+				},
+				{
+					"type": "image",
+					"header": "Descripción",
+					"content": {
+						"text": null,
+						"list": null,
+						"image": "4978-2.png"
+					}
+				}
+			]
+		},
+		{
+			"Type": "pbi",
+			"Number": "4864",
+			"Title": "AGREGAR SCRIPT - Clarity",
+			"Env": "both",
+			"Stack": "front",
+			"Url": "",
+			"Slides": []
+		},
+		{
+			"Type": "bug",
+			"Number": "4872",
+			"Title": "ADD - No pasa del paso 2 al 3 en automático (CompanyId: null)",
+			"Env": "dev",
+			"Stack": "full",
+			"Url": "",
+			"Slides": []
+		}
+	],
+	"Resources": {
+		"Skill": {
+			"Type": "Alexa::ASK::Skill",
+			"Properties": {
+				"AuthenticationConfiguration": {
+					"RefreshToken": "<String>",
+					"ClientSecret": "<String>",
+					"ClientId": "<String>"
+				},
+				"VendorId": "<String>",
+				"SkillPackage": {
+					"S3Bucket": "<String>",
+					"S3Key": "<String>"
+				}
+			}
+		}
+	}
+}
