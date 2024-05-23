@@ -1,0 +1,99 @@
+{
+  "SprintInfo": {
+    "Type": "Kanban",
+    "Number": "34 B",
+    "Date": "10 Mayo - 23 mayo"
+  },
+  "PBIs": [
+    {
+      "Type": "bug",
+      "Number": "5143",
+      "Title": "CFDIs de Ingreso en pestaña 'CFDIs de Egreso Relacionados'",
+      "Env": "both",
+      "Stack": "front",
+      "Url": "https://dev.ezaudita.com/cfdi-received?cid=873457be-cfbb-4c47-a8df-cbe4d048bf6c&type=egress&period=2024-mayo",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Al dar click en un CFDI de egreso relacionado, debería abrir el modal de el CFDI de egreso, pero al no tener un filtro, hay CFDIs de ingreso que están apareciendo en la columna 'CFDIs de egreso relacionados'"
+            ],
+            "list": null,
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": null,
+            "list": null,
+            "image": "5143-1.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "4995",
+      "Title": "IVA ACREDITABLE - Listado de DocsRelacionados",
+      "Env": "local",
+      "Stack": "front",
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Avances",
+          "content": {
+            "text": null,
+            "list": [
+              "Se manda llamar el nuevo endpoint",
+              "Implementación Redux Saga",
+              "Petición de los nuevos campos"
+            ],
+            "image": "4995-1.png"
+          }
+        }
+      ]
+    },
+    {
+      "Type": "pbi",
+      "Number": "Otras Actividades",
+      "Title": "",
+      "Env": null,
+      "Stack": null,
+      "Url": null,
+      "Slides": [
+        {
+          "type": "image",
+          "header": null,
+          "content": {
+            "text": null,
+            "list": [
+              "Apoyo PBIs y nuevos integrantes frontend",
+              "Implementación commitizen en frontend",
+              "Mejora de código (no crítico) en front"
+            ],
+            "image": null
+          }
+        },
+        {
+          "type": "image",
+          "header": "Hallazgos",
+          "content": {
+            "text": null,
+            "list": [
+              "Redux saga implementado sin un estandar",
+              "Código en desuso",
+              "Secciones con ausencia de código 'importante' [CFDI: Nomina-Recibidos y Conceptos]",
+              "Deploy: Librerías para 'versionado' del código (frontend)."
+            ],
+            "image": null
+          }
+        }
+      ]
+    }
+  ]
+}
