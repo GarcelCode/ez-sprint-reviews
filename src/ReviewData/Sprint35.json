@@ -1,0 +1,36 @@
+{
+  "SprintInfo": {
+    "Type": "SCRUM",
+    "Number": "35 B",
+    "Date": "24 Mayo - 11 junio"
+  },
+  "PBIs": [
+    {
+      "Type": "pbi",
+      "Number": "4995",
+      "Title": "IVA ACREDITABLE - Listado de DocsRelacionados",
+      "Env": "dev",
+      "Stack": "front",
+      "Url": "http://localhost:5173",
+      "Slides": []
+    },
+    {
+      "Type": "pbi",
+      "Number": "4998",
+      "Title": "IVA ACREDITABLE - Cambios en el cálculo del IVA acreditable",
+      "Env": "local",
+      "Stack": "front",
+      "Url": null,
+      "Slides": []
+    },
+    {
+      "Type": "pbi",
+      "Number": "4999",
+      "Title": "IVA ACREDITABLE - Cambio en el conteo de Docs Relacionados de los CFDIs de Pago",
+      "Env": "local",
+      "Stack": "front",
+      "Url": "http://localhost:5173",
+      "Slides": []
+    }
+  ]
+}
