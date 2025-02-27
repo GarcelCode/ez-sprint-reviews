@@ -1,4 +1,4 @@
-import data from "../ReviewData/Sprint35.json";
+import data from "../ReviewData/Review270225.json";
 import getPBIs from "../utils/getPBIs";
 import getSprintTitle from "../utils/getSprintTitle";
 
@@ -7,7 +7,7 @@ export default function Review() {
   const SprintPBIs = data.PBIs;
 
   return (
-    <div className="slides">
+    <div key="review" className="slides">
       {getSprintTitle(SprintData)}
       {SprintPBIs.map((PBI) => getPBIs(PBI))}
     </div>

@@ -1,0 +1,54 @@
+{
+  "SprintInfo": {
+    "Type": "Sprint",
+    "Number": "",
+    "Date": "14 febrero - 27 febrero"
+  },
+  "PBIs": [
+    {
+      "Type": "pbi",
+      "Number": "7801",
+      "Title": "INTERMITENCIA - Evitar spam del endpoint '/SATQuery/log'",
+      "Env": "prod",
+      "Stack": "front",
+      "Url": "http://localhost:5173",
+      "Slides": []
+    },
+    {
+      "Type": "bug",
+      "Number": "7513",
+      "Title": "usuario - Paquetes (zips) que exceden el límite de 15k",
+      "Env": "prod",
+      "Stack": "back",
+      "Url": null,
+      "Slides": []
+    },
+    {
+      "Type": "bug",
+      "Number": "7770",
+      "Title": "FIEL caduca no notifica mediante banner",
+      "Env": "prod",
+      "Stack": "front",
+      "Url": "http://localhost:5173",
+      "Slides": []
+    },
+    {
+      "Type": "bug",
+      "Number": "2189",
+      "Title": "'Olvidé contraseña' no funciona para usuarios invitados",
+      "Env": "review",
+      "Stack": "back",
+      "Url": "http://localhost:5173",
+      "Slides": []
+    },
+    {
+      "Type": "bug",
+      "Number": "7841",
+      "Title": "General-  Al abrir el complemento de pago no muestra método de pago de las facturas asociadas.",
+      "Env": "local",
+      "Stack": "front",
+      "Url": "http://localhost:5173",
+      "Slides": []
+    }
+  ]
+}
