@@ -51,7 +51,7 @@ export default function PBIItem({
           {env === "review" ? (
             <div
               style={{
-                backgroundColor: "#d2fc36",
+                backgroundColor: "#ffa910",
                 padding: "2px 15px 0 15px",
                 borderRadius: 5,
                 color: "#1f1f1f",
@@ -91,7 +91,7 @@ export default function PBIItem({
                 borderRadius: 5,
               }}
             >
-              Front-End
+              Frontend
             </div>
           ) : null}
           {stack === "back" || stack === "full" ? (
@@ -102,7 +102,7 @@ export default function PBIItem({
                 borderRadius: 5,
               }}
             >
-              Back-End
+              Backend
             </div>
           ) : null}
         </div>

@@ -1,12 +1,28 @@
 .SlideContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.SlideContainerImageRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
 .TextContainer {
-    width: 100%;
+  width: 100%;
 }
 
 .ImageContainer {
-    width: 100%;
+  width: 100%;
+  margin-top: -50px;
+}
+
+.ImageContainerImageRow {
+  width: 100%;
+}
+
+.ImageContainer img {
+  max-width: 560px;
 }

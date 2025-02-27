@@ -11,8 +11,31 @@
       "Title": "INTERMITENCIA - Evitar spam del endpoint '/SATQuery/log'",
       "Env": "prod",
       "Stack": "front",
-      "Url": "http://localhost:5173",
-      "Slides": []
+      "Url": "",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Descripción",
+          "content": {
+            "text": [
+              "Es necesario evitar el spam del endpoint '/SATQuery/log' para evitar que se cuelgue el servidor."
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Acciones",
+          "content": {
+            "text": [
+              "Se agregó una condición para bloquear el botón de 'refrescar' durante 16 minutos y evitar posible spam del endpoint '/SATQuery/log'."
+            ],
+            "list": [],
+            "image": "7801-1.png"
+          }
+        }
+      ]
     },
     {
       "Type": "bug",
@@ -21,7 +44,41 @@
       "Env": "prod",
       "Stack": "back",
       "Url": null,
-      "Slides": []
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Situación",
+          "content": {
+            "text": [],
+            "list": [
+              "La cuenta del usuario no ha descargado XML en algunos períodos."
+            ],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Hallazgos",
+          "content": {
+            "text": [
+              "Se encontró que la cuenta se emite facturas a sí misma. Esto ocasionaba que a 'ojos' nuestros la cantidad de CFDIs en ciertos periodos no excedia el límite puesto para procesar Zips (15k), ya que al generar los chunks se valida si son emitidos o recibidos en base al RfcEmisor y el Rfc de la compañía."
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Acciones",
+          "content": {
+            "text": [
+              "Se dio de alta esta empresa en DEV para conseguir los Zips faltantes y con apoyo de Moy estos fueron cargados manualmente."
+            ],
+            "list": [],
+            "image": ""
+          }
+        }
+      ]
     },
     {
       "Type": "bug",
@@ -29,8 +86,43 @@
       "Title": "FIEL caduca no notifica mediante banner",
       "Env": "prod",
       "Stack": "front",
-      "Url": "http://localhost:5173",
-      "Slides": []
+      "Url": "",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Situación",
+          "content": {
+            "text": [
+              "El usuario reportaba que su FIEL había vencido, pero el sistema no mostraba alguna notificación."
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Hallazgos",
+          "content": {
+            "text": [
+              "Se encontró que las variables usadas por frontend para mostrar el banner no estaban actualizadas (mostraban un valor incorrecto)."
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Acciones",
+          "content": {
+            "text": [
+              "En frontend actualmente se puede determinar si una FIEL está pronto a vencer o está vencida. Ya qué se tiene un endpoint que devuelve dicha información.",
+              "Es por esto que se decidió usar la información de ese endpoint para mostrar el banner."
+            ],
+            "list": [],
+            "image": "7770-1.png"
+          }
+        }
+      ]
     },
     {
       "Type": "bug",
@@ -38,8 +130,43 @@
       "Title": "'Olvidé contraseña' no funciona para usuarios invitados",
       "Env": "review",
       "Stack": "back",
-      "Url": "http://localhost:5173",
-      "Slides": []
+      "Url": "",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Situación",
+          "content": {
+            "text": [
+              "Cuando un usuario es invitado y confirma su cuenta iniciando sesión con su contraseña temporal no se verifica la cuenta.",
+              "El no tener la cuenta verificada da problemas a la hora de querer recuperar la contraseña, esto porque el servicio de AWS cognito no permite el envío de una contraseña temporal cuando el correo no está verificado."
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image-row",
+          "header": "Hallazgos",
+          "content": {
+            "text": [
+              "El correo actual, sólo envía el correo y contraseña temporal. Y al iniciar sesión por primera vez, el código actual de backend sólo confirma la cuenta, pero no la verifica."
+            ],
+            "list": [],
+            "image": "2189-1.png"
+          }
+        },
+        {
+          "type": "image-row",
+          "header": "Acciones",
+          "content": {
+            "text": [
+              "Se actualizó el cuerpo del correo, agregando una acción al botón que verifica la cuenta y redirige al usuario a la aplicación."
+            ],
+            "list": [],
+            "image": "2189-2.png"
+          }
+        }
+      ]
     },
     {
       "Type": "bug",
@@ -47,8 +174,43 @@
       "Title": "General-  Al abrir el complemento de pago no muestra método de pago de las facturas asociadas.",
       "Env": "local",
       "Stack": "front",
-      "Url": "http://localhost:5173",
-      "Slides": []
+      "Url": "",
+      "Slides": [
+        {
+          "type": "image",
+          "header": "Situación",
+          "content": {
+            "text": [
+              "El modal de un complemento de pago no muestra información en la columna Método de pago de la tabla de documentos relacionados."
+            ],
+            "list": [],
+            "image": "7841-1.png"
+          }
+        },
+        {
+          "type": "image",
+          "header": "Hallazgos",
+          "content": {
+            "text": [
+              "El campo que se usa en frontend para mostrar el valor 'MetodoDePagoDR' no se está llenando actualmente en la base de datos.",
+              "Este campo se llenaba en el procesamiento de pagos 1.0 porque venía en el XML, pero en pagos 2.0 este atributo ya no está presente."
+            ],
+            "list": [],
+            "image": ""
+          }
+        },
+        {
+          "type": "image",
+          "header": "Acciones",
+          "content": {
+            "text": [
+              "Como propuesta, se espera mostrar el valor en el campo de método de pago extrayendolo del CFDI que aparece en cada fila."
+            ],
+            "list": [],
+            "image": "7841-2.png"
+          }
+        }
+      ]
     }
   ]
 }

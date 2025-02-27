@@ -14,13 +14,26 @@ export default function generateSlide(slide) {
   return (
     <section>
       <h3>{slide.header}</h3>
-      <div className={s.SlideContainer}>
+      <div
+        className={
+          slide.content.image && slide.type === "image"
+            ? s.SlideContainer
+            : s.SlideContainerImageRow
+        }
+      >
         <div className={s.TextContainer}>
           {textContent ? generateParagraphs(textContent) : null}
           {listContent ? generateList(listContent) : null}
         </div>
-        {slide.content.image && slide.type === "image" ? (
-          <div className={s.ImageContainer}>
+        {slide.content.image &&
+        (slide.type === "image" || slide.type === "image-row") ? (
+          <div
+            className={
+              slide.content.image && slide.type === "image"
+                ? s.ImageContainer
+                : s.ImageContainerImageRow
+            }
+          >
             <img src={imageURL} />
           </div>
         ) : null}
