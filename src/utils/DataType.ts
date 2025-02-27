@@ -15,6 +15,7 @@ export type DataType = {
       Slides: [
         {
           type: "normal" | "image";
+          imageSize: string;
           header: string;
           content: {
             text: [string];

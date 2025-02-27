@@ -34,7 +34,7 @@ export default function generateSlide(slide) {
                 : s.ImageContainerImageRow
             }
           >
-            <img src={imageURL} />
+            <img style={{ maxWidth: slide.imageSize }} src={imageURL} />
           </div>
         ) : null}
       </div>
